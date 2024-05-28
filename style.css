@@ -1,0 +1,99 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  display: grid;
+  place-content: center;
+  background-color: hsl(190, 50%, 80%); /* Optional: add a background color for better contrast */
+}
+
+.button-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px; /* Add some space between buttons */
+  max-width: 300px; /* Adjust the maximum width as needed */
+  max-height: 300px; /* Adjust the maximum height as needed */
+}
+
+.myBtn {
+  height: 80px; /* Smaller button size */
+  width: 80px; /* Smaller button size */
+  font-size: 1.5em; /* Adjust font size */
+  cursor: pointer;
+  border: solid #ffd5cc;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.myBtn:active {
+  background-color: hsl(0, 0%, 90%);
+}
+
+.O-bgColor {
+  background-color: hsl(220, 80%, 70%);
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.X-bgColor {
+  background-color: hsl(20, 80%, 70%);
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.popup {
+  display: none;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: hsl(11, 100%, 97%);
+}
+
+.popup-content {
+  background-color: hsl(11, 100%, 95%);
+  margin: 10% auto;
+  padding: 20px;
+  width: 80%;
+  text-align: center;
+  font-weight: bolder;
+  font-family: Arial;
+  font-size: 1.5em;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: bold;
+}
+
+#resetButton {
+  background-color: #ffd5cc;
+  color: hsl(0, 0%, 50%);
+  border: none;
+  font-weight: bolder;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  display: block; /* Ensure it is a block element */
+  margin-left: auto;
+  margin-right: auto; /* Center the button horizontally */
+  transition: 0.5s ease;
+}
+#resetButton:hover{
+  color: hsl(0, 0%, 30%);
+}
