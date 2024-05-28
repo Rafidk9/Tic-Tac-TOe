@@ -3,7 +3,7 @@ html, body {
   margin: 0;
   display: grid;
   place-content: center;
-  background-color: hsl(190, 50%, 80%); /* Optional: add a background color for better contrast */
+  background-color: hsl(190, 50%, 80%); 
 }
 
 .button-container {
@@ -19,7 +19,7 @@ html, body {
   width: 80px; /* Smaller button size */
   font-size: 1.5em; /* Adjust font size */
   cursor: pointer;
-  border: solid #ffd5cc;
+  border: solid hsl(11, 100%, 90%);
   border-radius: 5px;
   display: flex;
   justify-content: center;
@@ -30,18 +30,23 @@ html, body {
   background-color: hsl(0, 0%, 90%);
 }
 
-.O-bgColor {
-  background-color: hsl(220, 80%, 70%);
+.O-bgColor, .X-bgColor{
   font-weight: bold;
   font-size: 2rem;
+  font-family: system-ui;
 }
-
+.O-bgColor{
+  background-color: hsl(220, 80%, 70%);
+}
 .X-bgColor {
   background-color: hsl(20, 80%, 70%);
-  font-weight: bold;
-  font-size: 2rem;
 }
-
+h1{
+  font-size: 2rem;
+  text-align: center;
+  font-family: system-ui;
+  font-weight: 900;
+}
 .popup {
   display: none;
   z-index: 1;
@@ -60,7 +65,7 @@ html, body {
   width: 80%;
   text-align: center;
   font-weight: bolder;
-  font-family: Arial;
+  font-family: system-ui;
   font-size: 1.5em;
 }
 
@@ -79,21 +84,78 @@ html, body {
   font-family: bold;
 }
 
-#resetButton {
-  background-color: #ffd5cc;
-  color: hsl(0, 0%, 50%);
-  border: none;
-  font-weight: bolder;
-  border-radius: 5px;
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  display: block; /* Ensure it is a block element */
-  margin-left: auto;
-  margin-right: auto; /* Center the button horizontally */
-  transition: 0.5s ease;
+#resetButton,
+#resetButton *,
+#resetButton :after,
+#resetButton :before,
+#resetButton:after,
+#resetButton:before {
+  border: 0 solid;
+  box-sizing: border-box;
 }
-#resetButton:hover{
-  color: hsl(0, 0%, 30%);
+#resetButton {
+  -webkit-tap-highlight-color: 
+transparent;
+  -webkit-appearance: button;
+  background-color: 
+#000;
+  background-image: none;
+  color: 
+#ffd5cc;
+  cursor: pointer;
+  font-family:system-ui;
+  font-size: 100%;
+  font-weight: 900;
+  line-height: 1.5;
+  margin: 0;
+  -webkit-mask-image: -webkit-radial-gradient(#000, #ffd5cc);
+  padding: 0;
+}
+#resetButton:disabled {
+  cursor: default;
+}
+#resetButton:-moz-focusring {
+  outline: auto;
+}
+#resetButton svg {
+  display: block;
+  vertical-align: middle;
+}
+#resetButton [hidden] {
+  display: none;
+}
+#resetButton {
+  --height: 80px;
+  background: none;
+  border-radius: 999px;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  height: var(--height);
+  -webkit-mask-image: none;
+  padding: 0 3rem;
+  position: relative;
+  text-transform: uppercase;
+}
+#resetButton span {
+  font-weight: 900;
+  mix-blend-mode: difference;
+}
+#resetButton:before {
+  background: 
+#ffd5cc;
+  border-radius: 20px;
+  content: "";
+  height: calc(var(--height) / 1.7);
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.2s;
+  width: calc(var(--height) / 1.7);
+}
+#resetButton:hover:before {
+  left: 0;
+  width: 100%;
 }
