@@ -60,22 +60,22 @@ function checkWin(clicks) {
 }
 
 function showPopup(message) {
-    const popup = document.getElementById("winnerPopup");
-    const messageElement = document.getElementById("winnerMessage");
+    const popup = document.getElementById("popUp");
+    const messageElement = document.getElementById("message");
     messageElement.textContent = message;
     popup.style.display = "block";
 }
 
 // Close the popup when the user clicks on <span> (x)
 const closeSpan = document.getElementById("popupClose");
-closeSpan.onclick = function() {
-    const popup = document.getElementById("winnerPopup");
+closeSpan.onclick = () => {
+    const popup = document.getElementById("popUp");
     popup.style.display = "none";
 }
 
 // Close the popup when the user clicks anywhere outside of the popup
 window.onclick = function(event) {
-    const popup = document.getElementById("winnerPopup");
+    const popup = document.getElementById("popUp");
     if (event.target == popup) {
         popup.style.display = "none";
     }
@@ -96,6 +96,6 @@ function resetGame() {
         button.classList.remove("X-bgColor", "O-bgColor");
     });
 
-    const popup = document.getElementById("winnerPopup");
+    const popup = document.getElementById("popUp");
     popup.style.display = "none";
 }
