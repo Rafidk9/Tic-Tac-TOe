@@ -41,6 +41,17 @@ html, body {
 .X-bgColor {
   background-color: hsl(20, 80%, 70%);
 }
+.X-win-bgColor {
+  background-color: hsl(20, 90%, 10%); 
+  color: hsl(20, 80%, 70%);
+  font-size: 2.5rem
+}
+.O-win-bgColor {
+  background-color: hsl(220, 90%, 10%);
+  color: hsl(220, 80%, 70%);
+  font-size: 2.5rem
+}
+
 h1{
   font-size: 2rem;
   text-align: center;

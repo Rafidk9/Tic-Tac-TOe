@@ -32,14 +32,20 @@ Array.from(buttons).forEach((button, index) => {
         count++;
         clicked[buttonNum] = true;
 
-        if (checkWin(xClicks)) {
+        let winningCombination = checkWin(xClicks);
+        if (winningCombination) {
             gameWon = true;
+            highlightWinningCombination(winningCombination, "X");
             showPopup("X wins! Congratulations!");
-        } else if (checkWin(oClicks)) {
-            gameWon = true;
-            showPopup("O wins! Congratulations!");
-        } else if (count === 9) {
-            showPopup("It's a draw!");
+        } else {
+            winningCombination = checkWin(oClicks);
+            if (winningCombination) {
+                gameWon = true;
+                highlightWinningCombination(winningCombination, "O");
+                showPopup("O wins! Congratulations!");
+            } else if (count === 9) {
+                showPopup("It's a draw!");
+            }
         }
     });
 });
@@ -50,12 +56,22 @@ function checkWin(clicks) {
         return false;
     }
 
-    return winningCombinations.some(combination => {
+    for (let combination of winningCombinations) {
         if (!Array.isArray(combination)) {
             console.error("Invalid combination array:", combination);
             return false;
         }
-        return combination.every(num => clicks.includes(num));
+        if (combination.every(num => clicks.includes(num))) {
+            return combination;
+        }
+    }
+    return false;
+}
+
+function highlightWinningCombination(combination, player) {
+    combination.forEach(num => {
+        const button = document.querySelector(`.myBtn[value="button-${num}"]`);
+        button.classList.add(`${player}-win-bgColor`);
     });
 }
 
@@ -93,7 +109,7 @@ function resetGame() {
 
     Array.from(buttons).forEach(button => {
         button.textContent = "";
-        button.classList.remove("X-bgColor", "O-bgColor");
+        button.classList.remove("X-bgColor", "O-bgColor", "X-win-bgColor", "O-win-bgColor");
     });
 
     const popup = document.getElementById("popUp");
